@@ -1,32 +1,61 @@
-# Mintlify Starter Kit
+# The Postroom
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+## Features
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+Here are some of the features that The Postroom offers:
+
+- Post directly to social media from within the platform
+- Manage your team within the application
+- Schedule notifications for social media posts
+
+## Tech Stack
+
+The Postroom is built on top of the following technologies:
+
+- A [GitHub](https://github.com/) account
+- [Next.js](https://nextjs.org/) - framework
+- [TypeScript](https://www.typescriptlang.org/) - language
+- [Tailwind](https://tailwindcss.com/) - CSS
+- [Redis](https://redis.com/) - redis
+- [Tinybird](https://tinybird.com/) - analytics (coming soon)
+- [MySQL](https://mysql.com/) - database
+- [NextAuth.js](https://next-auth.js.org/) - auth
+- [BullMQ](https://https://docs.bullmq.io/) - queue worker
+- [Stripe](https://stripe.com/) - payments (coming soon)
+- [Mailing](https://www.mailing.run/) - emails
+- [Laravel Forge](https://forge.laravel.com/) - deployments (frontend)
 
 ### Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+#### Step 1: Local setup
 
-```
-npm i -g mintlify
-```
+First, clone the [The Postroom repo](https://github.com/Bond-and-Coyne/ThePostRoom) GitHub repository.
 
-Run the following command at the root of your documentation (where mint.json is)
-
-```
-mintlify dev
+```bash
+git clone git@github.com:Bond-and-Coyne/ThePostRoom.git
 ```
 
-### Publishing Changes
+Run the following command to install the dependencies:
 
-Install our Github App to autopropagate changes from youre repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+```bash
+cd next && yarn
+```
 
-#### Troubleshooting
+Convert the `.env.template` file to `.env`. 
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `mint.json`
+<Info>If you require access, please contact [Craig](mailto:craig@bondandcoyne.co.uk) or [Dan](mailto:daniel@bondandcoyne.co.uk)</Info>
+
+Setup self signed certificates within the folder to run the local version on SSL
+
+<Info>We use mkcert install via [Brew](https://formulae.brew.sh/formula/mkcert)</Info>
+
+<Info>This app runs on a '.app' subdomain, so you may also need to update your hosts file to include `app.localhost 127.0.0.1`</Info>
+
+```bash
+mkcert app.localhost
+```
+
+Finally we can run the dev server which will automatically proxy ssl from `port 3000`
+```bash
+yarn dev
+```
